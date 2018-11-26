@@ -1,7 +1,8 @@
-package com.tosacisst.nwar.myapplication
+package com.tosacisst.nwar.myapplication.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.tosacisst.nwar.myapplication.R
 
 class MainActivity : AppCompatActivity() {
 
