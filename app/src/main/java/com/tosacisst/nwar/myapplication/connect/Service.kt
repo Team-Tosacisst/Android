@@ -5,7 +5,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Service {
-    val BaseURL = "URL"
+    val BaseURL = "http://52.78.227.70:5001/api/"
     val httpClient = OkHttpClient.Builder()
     val builder = Retrofit.Builder()
         .baseUrl(BaseURL)
