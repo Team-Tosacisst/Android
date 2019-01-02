@@ -3,6 +3,7 @@ package com.tosacisst.nwar.myapplication.event
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Context
+import android.support.constraint.ConstraintLayout
 import android.util.Log
 import android.view.DragEvent
 import android.view.View
@@ -27,21 +28,21 @@ class SetEvent(val context : Context){
         override fun onDrag(v: View?, event: DragEvent?): Boolean {
             var x : Float?
             var y : Float?
+            x = event?.x
+            y = event?.y
             when (event?.action){
                 DragEvent.ACTION_DRAG_STARTED -> Toast.makeText(context,"드래그", Toast.LENGTH_SHORT).show()
                 DragEvent.ACTION_DROP -> {
                     val view : View = event.localState as View
                     val viewGroup : ViewGroup = view.parent as ViewGroup
                     viewGroup.removeView(view)
-                    val containView : LinearLayout = v as LinearLayout
+                    val containView = v as ConstraintLayout
                     view.animate().translationX(event?.x-view.width/2)
                     view.animate().translationY(event?.y-view.height/2)
                     containView.addView(view)
                     view.visibility = View.VISIBLE
                 }
             }
-            x = event?.x
-            y = event?.y
             Log.e("Drag","Point X: ${x.toString()} PointY: ${y.toString()}")
             return true
         }
