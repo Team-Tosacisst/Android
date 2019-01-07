@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import com.tosacisst.nwar.myapplication.R
 import com.tosacisst.nwar.myapplication.binding.BlogListAdapter
+import com.tosacisst.nwar.myapplication.binding.SetRecyclerView
 import com.tosacisst.nwar.myapplication.event.SetEvent
 import com.tosacisst.nwar.myapplication.module.main.UserInfo
 import com.tosacisst.nwar.myapplication.module.poster.PosterInfo
@@ -34,15 +35,8 @@ class MainActivity : AppCompatActivity(){
         list.add(PosterInfo("","제목4","내용","URL"))
         list.add(PosterInfo(URL,"제목5","내용","URL"))
 
-        setRecyclerView(list, recyclerView1)
-        setRecyclerView(list, recyclerView2)
-    }
-    fun setRecyclerView(list : ArrayList<PosterInfo>, recyclerView : RecyclerView){
-
-        val adapter = BlogListAdapter(this, list)
-        val lm = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = lm
-        recyclerView.setHasFixedSize(true)
+        val setRecyclerView = SetRecyclerView<PosterInfo>(this)
+        setRecyclerView.setRecyclerView(setRecyclerView.HORIZONTAL,list,recyclerView1)
+        setRecyclerView.setRecyclerView(setRecyclerView.HORIZONTAL,list,recyclerView2)
     }
 }
