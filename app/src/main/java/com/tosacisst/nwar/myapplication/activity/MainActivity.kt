@@ -40,7 +40,5 @@ class MainActivity : AppCompatActivity(){
         val setRecyclerView = SetRecyclerView<PosterInfo>(this)
         setRecyclerView.setRecyclerView(setRecyclerView.HORIZONTAL,list,recyclerView1)
         setRecyclerView.setRecyclerView(setRecyclerView.HORIZONTAL,list,recyclerView2)
-        val intent: Intent = Intent(this, LoadingImageActivity::class.java)
-        startActivity(intent)
     }
 }
