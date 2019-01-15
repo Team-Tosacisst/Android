@@ -9,12 +9,18 @@ import com.tosacisst.nwar.myapplication.R
 import com.tosacisst.nwar.myapplication.binding.SetRecyclerView
 import com.tosacisst.nwar.myapplication.event.SetEvent
 import com.tosacisst.nwar.myapplication.module.poster.PosterInfo
+import android.content.Intent
+import com.tosacisst.nwar.myapplication.Image.LoadingImageActivity
+
 
 class MainActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val splashIntent = Intent(this, LoadingImageActivity::class.java)
+        startActivity(splashIntent)
 
         val img = findViewById<ImageView>(R.id.img) // 드래그할 뷰
         img.setOnLongClickListener(SetEvent(this).SetOnLongClick())
